@@ -118,9 +118,15 @@ async function setupDiscordSdk() {
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <img src="${bdbotLogo}" class="logo" alt="bd bot" />
-    <h1>Hiiiiii!</h1>
-    <h2>I'm your new bd</h2>
-    <h3>V●ᴥ●V</h3>
+    <input id="spawn" type="button" value = "SPAWN" />
   </div>
 `;
+
+document.querySelector('#spawn').addEventListener("click", e => {
+  document.querySelector('#app').innerHTML = `
+  <div>
+    <img src="${bdbotLogo}" class="logo" alt="bd bot" />
+  </div>
+`;
+
+});
