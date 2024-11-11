@@ -1,7 +1,9 @@
 // Import the SDK
 import { DiscordSDK } from '@discord/embedded-app-sdk';
 
-import bdbotLogo from '/cartoon-dot.png'
+import bd from '../assets/bd-crinkle-tongue.png';
+import egg from '../assets/bd-egg.png';
+import incubate from '../assets/incubate.png'
 import './style.css'
 
 // Store the authenticated user's access_token
@@ -27,7 +29,7 @@ async function appendVoiceChannelName() {
   }
 
   // Update theUI with the name of the current voice channel
-  const textTagString = `Activity Channel: "${activityChannelName}"`;
+  const textTagString = `${activityChannelName}`;
   const textTag = document.createElement('p');
   textTag.textContent = textTagString;
   app.appendChild(textTag);
@@ -117,15 +119,18 @@ async function setupDiscordSdk() {
 }
 
 document.querySelector('#app').innerHTML = `
-  <div>
-    <input id="spawn" type="button" value = "SPAWN" />
+  <div id="container">
+    <img src="${egg}" id="egg" alt="bd alien egg" />
   </div>
-`;
+  <div id="btns">
+    <input type="image" id="incubate-btn" src="${incubate}" value="submit" />
+    </div>
+    `;
 
-document.querySelector('#spawn').addEventListener("click", e => {
+
+document.querySelector('#incubate-btn').addEventListener("click", e => {
   document.querySelector('#app').innerHTML = `
   <div>
-    <img src="${bdbotLogo}" class="logo" alt="bd bot" />
   </div>
 `;
 
