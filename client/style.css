@@ -21,12 +21,16 @@ body {
 
 #app {
   margin: 0 auto;
-  background-color: orangered;
+  background-color: rgb(236, 34, 128);
   text-align: center;
 }
 
+#container {
+  background-color: rgb(94, 241, 94);
+}
+
 #egg {
-  background-color: yellowgreen;
+  background-color: rgb(226, 207, 60);
 }
 
 #btns {
@@ -38,13 +42,17 @@ body {
   background-color: none;
   border: none;
   cursor: pointer;
-  width: 120px;
 }
 
-#incubate {
-  box-sizing: content-box;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border: none;
+#location-div {
+  background-color: rgb(57, 223, 232);
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+#guild {
+  margin-right: 4px;
 }
