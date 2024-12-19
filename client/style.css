@@ -20,22 +20,22 @@ body {
 }
 
 #app {
-  margin: 0 auto;
-  background-color: rgb(236, 34, 128);
+  width: 400px;
+  height: 600px;
+  margin: 100px auto;
+  background-color: whitesmoke;
   text-align: center;
 }
 
-#container {
-  background-color: rgb(94, 241, 94);
-}
-
 #egg {
-  background-color: rgb(226, 207, 60);
+  border: 3px solid rgb(226, 207, 60);
+
 }
 
 #btns {
   display: flex;
   justify-content: center;
+  border: 3px solid black;
 }
 
 #incubate-btn {
@@ -45,12 +45,13 @@ body {
 }
 
 #location-div {
-  background-color: rgb(57, 223, 232);
   height: 40px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 4px;
+  border: 3px solid rgb(57, 223, 232);
+  color: #242424;
 }
 
 #guild {

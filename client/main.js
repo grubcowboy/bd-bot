@@ -75,10 +75,9 @@ async function setupDiscordSdk() {
 
 }
 
+
 document.querySelector('#app').innerHTML = `
-<div id="container">
 <img src="${egg}" id="egg" alt="bd alien egg" />
-</div>
 <div id="btns">
 <input type="image" id="incubate-btn" src="${incubate}" value="submit" />
 </div>
