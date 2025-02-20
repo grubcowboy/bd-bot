@@ -21,10 +21,10 @@ setupDiscordSdk().then(() => {
 
   // TODO: trying to create a div to hold voice channel and guild names for styling
 
-  const app = document.querySelector('#app');
+  const body = document.querySelector('body');
   const locDiv = document.createElement('div');
   locDiv.setAttribute("id", "location-div");
-  app.appendChild(locDiv);
+  body.appendChild(locDiv);
 
   appendVoiceChannelName();
   appendGuildAvatar();
