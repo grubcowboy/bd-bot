@@ -12,11 +12,11 @@ export class DiscordAPI {
     }
 
     async Init() {
-        await discordSdk.ready();
+        await this.discordSdk.ready();
         console.log("Discord SDK is ready ☺︎");
 
         // Authorize with Discord Client
-        const { code } = await discordSdk.commands.authorize({
+        const { code } = await this.discordSdk.commands.authorize({
             client_id: import.meta.env.VITE_DISCORD_CLIENT_ID,
             response_type: "code",
             state: "",
@@ -46,11 +46,11 @@ export class DiscordAPI {
         const { access_token } = await response.json();
 
         // Authenticate with Discord clent (using the access_token)
-        auth = await discordSdk.commands.authenticate({
+        this.auth = await this.discordSdk.commands.authenticate({
             access_token,
         });
 
-        if (auth == null) {
+        if (this.auth == null) {
             throw new Error("Authenticate command failed");
         }
     }
@@ -68,7 +68,7 @@ export class DiscordAPI {
         const guilds = await fetch('https://discord.com/api/v10/users/@me/guilds', {
             headers: {
                 // NOTE: we're using the access_token provided by the "authenticate" command
-                Authorization: `Bearer ${auth.access_token}`,
+                Authorization: `Bearer ${this.auth.access_token}`,
                 'Content-Type': 'application/json',
             },
         }).then((response) => response.json());
@@ -78,7 +78,7 @@ export class DiscordAPI {
     }
 
     async Channel(id) {
-        return discordSdk.commands.getChannel({ channel_id: id });
+        return this.discordSdk.commands.getChannel({ channel_id: id });
     }
 }
 
