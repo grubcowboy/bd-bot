@@ -23,3 +23,11 @@ $ cloudflared tunnel --url http://localhost:5173
 $ cd server/
 $ npm run dev
 ```
+
+### Development
+
+To quickly develop using a mock Discord API run:
+```
+$ cd client/
+$ npm run local
+```
