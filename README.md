@@ -24,9 +24,9 @@ $ cd server/
 $ npm run dev
 ```
 
-### Development
+### Client Development
 
-To quickly develop using a mock Discord API run:
+To quickly develop the frontend using a mock Discord API, only run:
 ```
 $ cd client/
 $ npm run local
