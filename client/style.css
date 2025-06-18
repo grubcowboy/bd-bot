@@ -19,27 +19,25 @@ body {
   display: flex;
   flex-direction: column;
   place-items: center;
-  background-color: hotpink;
+  background-color: lightskyblue;
 }
 
 #app {
   margin: auto;
   margin-top: 125px;
-  background-color: whitesmoke;
   text-align: center;
   display: flex;
   flex-direction: column;
 }
 
 #egg {
-  background-color: cornflowerblue;
+  /* border: solid 5px black; */
 }
 
 #btns {
   display: flex;
   justify-content: center;
   padding: 5px;
-  background-color: blanchedalmond;
 }
 
 #incubate-btn {
@@ -63,4 +61,54 @@ body {
 
 #guild {
   margin-right: 15px;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(-10deg);
+  }
+
+  20% {
+    transform: rotate(10deg);
+  }
+
+  30% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(10deg);
+  }
+
+  70% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(10deg);
+  }
+
+  90% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.shake {
+  animation: shake 5s linear;
 }

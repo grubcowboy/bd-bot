@@ -1,18 +1,41 @@
 import { DiscordAPI, DiscordDummyAPI } from './discord.js';
 
-import bd from '../assets/bd-crinkle-tongue.png';
-import egg from '../assets/bd-egg.png';
 import incubate from '../assets/incubate.png';
+import egg from '../assets/bd-egg.png';
 import './style.css';
 
 const env = import.meta.env.VITE_ENV;
 
 const discord = env == "local" ? new DiscordDummyAPI() : new DiscordAPI();
 
+
+const State = {
+  EGG: 'egg',
+  ADULT: 'adult',
+  SPACE: 'space',
+}
+
+
+class BDBot {
+
+  eggBodies = [egg];   // ['purple.png', 'red.png', 'green.png'];
+  bodies = ['one.png', 'two.png', 'three.png'];
+
+  constructor() {
+    this.created = new Date();
+    this.state = State.EGG;
+    this.egg = this.eggBodies[0]; // TODO: rng
+    this.body = this.bodies[0]; // TODO: rng
+  }
+
+}
+
 discord.Init().then(() => {
   console.log("Discord SDK is authenticated ☺︎");
 
   // TODO: trying to create a div to hold voice channel and guild names for styling
+
+  createBD();
 
   const body = document.querySelector('body');
   const locDiv = document.createElement('div');
@@ -24,21 +47,28 @@ discord.Init().then(() => {
 });
 
 
-document.querySelector('#app').innerHTML = `
-<img src="${egg}" id="egg" alt="bd alien egg" />
-<div id="btns">
-<input type="image" id="incubate-btn" src="${incubate}" value="submit" />
-</div>
-`;
+async function createBD() {
+  const bd = new BDBot();
 
-// TODO: replace egg animation with placeholder bd image (v0) --> random bd (v1)
 
-document.querySelector('#incubate-btn').addEventListener("click", e => {
   document.querySelector('#app').innerHTML = `
-  <div>
+  <img src="${bd.egg}" id="egg" alt="bd alien egg" />
+  <div id="btns">
+  <input type="image" id="incubate-btn" src="${incubate}" value="submit" />
   </div>
   `;
-});
+
+  document.querySelector('#incubate-btn').addEventListener("click", e => {
+    document.querySelector('#egg').classList.add('shake');
+  });
+
+  document.querySelector('#egg').addEventListener("animationend", e => {
+    document.querySelector('#egg').classList.remove('shake');
+    console.log(document.querySelector('#egg').classList.length);
+  }, { once: false });
+
+};
+
 
 
 async function appendGuildAvatar() {
