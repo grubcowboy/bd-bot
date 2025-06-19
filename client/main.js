@@ -2,6 +2,7 @@ import { DiscordAPI, DiscordDummyAPI } from './discord.js';
 
 import incubate from '../assets/incubate.png';
 import egg from '../assets/bd-egg.png';
+import poof from '../assets/poof-cloud.png';
 import './style.css';
 
 const env = import.meta.env.VITE_ENV;
@@ -63,9 +64,16 @@ async function createBD() {
   });
 
   document.querySelector('#egg').addEventListener("animationend", e => {
-    document.querySelector('#egg').classList.remove('shake');
-    console.log(document.querySelector('#egg').classList.length);
-  }, { once: false });
+    //   document.querySelector('#egg').classList.remove('shake');
+    //   console.log(document.querySelector('#egg').classList.length);
+    // }, { once: false }
+    document.querySelector('#egg').remove();
+    const cloud = document.createElement('img');
+    cloud.id = 'poof';
+    cloud.alt = "poof cloud";
+    cloud.src = poof;
+    document.querySelector('#app').prepend(cloud);
+  });
 
 };
 

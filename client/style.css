@@ -31,7 +31,11 @@ body {
 }
 
 #egg {
-  /* border: solid 5px black; */
+  border: solid 5px black;
+}
+
+#poof {
+  border: solid 5px black;
 }
 
 #btns {
